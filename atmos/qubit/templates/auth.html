@@ -17,7 +17,7 @@
         </div>
         <div class="code">
             
-            <form method="post" action="#" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" action="{% url 'home' %}">
                 {% csrf_token %}
                 <div class="data">
                     <input type="text" class="single-input" name="input1">

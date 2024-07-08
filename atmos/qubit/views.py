@@ -1,24 +1,29 @@
 from django.shortcuts import render,redirect
+from .forms import userform
 # Create your views here.
-from django.contrib.auth.models import User
-from django.http import HttpResponse
+
+
 
 def login(req):
-    if req.POST: 
-        phone=req.POST.get('phone','')
-        print(phone)
-    return render(req,'login.html')
+    frm=userform()
+    if req.method=='POST':
+        print(req.POST.get('data'))
+
+
+        return redirect('auth')
+       
+    return render(req,'login.html',{'frm':frm})
 
 # telegram_auth/views.py
 
 
 def home(request):
     if request.method == 'POST':
-        phone = request.POST.get('phone')
-        print(phone)
-        # Handle form submission and logic here
-        return HttpResponse("Form submitted with phone number: " + phone)
-    return render(request, 'home.html')
+        print(request.POST.get('email'))
+
+
+    # If the request method is not POST, render the form
+    return render(request,'home.html')
 
 def auth(req):
     if req.method=='POST':

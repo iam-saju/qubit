@@ -36,11 +36,15 @@
         </div>
 
         <div class="user">
-            <form method="post" action="{% url 'auth' %}" enctype="multipart/form-data">
+            <form method="post" action="">
+
                 {% csrf_token %}
-                <input type="text" name="phone" placeholder="Enter phone number">
+                <div class="user">
+                  <input type="text" name="data" >
+                </div>
+                
                 <div class="login-button">
-                    <button type="submit" class="telegram">
+                    <button class="telegram" type="submit">
                         <p>Connect to</p>
                         <img src="{% static 'img/file(7).png' %}" class="tel-logo">
                     </button>
